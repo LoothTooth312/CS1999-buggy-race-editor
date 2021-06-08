@@ -9,11 +9,119 @@
   </p>
 
   <form action="/new" method="post">
+    <h2>Wheels</h2>
     <label for="qty_wheels">Number of wheels:</label>
-    <input type="text" name="qty_wheels" />
-    <label for="flag_color">Colour of flag:</label>
-    <input type="text" name="flag_color" />    
+    <input type="text" name="qty_wheels" value ="{{ buggy['qty_wheels'] }}"/>
+    <br>
+    <h2>Flag</h2>
+    <label for="flag_color">Primary flag colour:</label>
+    <input type="text" name="flag_color" value ="{{buggy['flag_color']}}" />    
+    <br>
+    <label for="flag_color_secondary">Secondary flag colour:</label>
+    <input type="text" name="flag_color_secondary" value ="{{buggy['flag_color_secondary']}}" />
+    <br>
+    <label for="flag_pattern">Flag flag_pattern:</label>
+    <select name ="flag_pattern">
+      <option selected value="plain">Plain</option>
+      <option value="vstripe">Vertical stripe</option>
+      <option value="hstripe">Horizontal stripe</option>
+      <option value="checker">Checker</option>
+      <option value="spot">Spot</option>
+    </select>
+    <br>
+    <h2>Power</h2>
+    <label for="power_type">Primary power type:</label>
+    <select name ="power_type">
+      <option selected value="petrol">Petrol</option>
+      <option value="fusion">Fusion</option>
+      <option value="steam">Steam</option>
+      <option value="bio">Bio</option>
+      <option value="electric">Electric</option>
+      <option value="rocket">Rocket</option>
+      <option value="hamster">Hamster</option>
+      <option value="thermo">Thermo</option>
+      <option value="solar">Solar</option> 
+      <option value="wind">Wind</option>
+    </select>
+    <label for="power_unit">Units of power:</label>
+    <input type="text" name="power_unit" value ="{{buggy['power_unit']}}"/>
+    <br>
+    <label for="aux_power_type"> Auxilary power type:</label>
+    <select name ="aux_power_type">
+      <option selected value="petrol">Petrol</option>
+      <option value="fusion">Fusion</option>
+      <option value="steam">Steam</option>
+      <option value="bio">Bio</option>
+      <option value="electric">Electric</option>
+      <option value="rocket">Rocket</option>
+      <option value="hamster">Hamster</option>
+      <option value="thermo">Thermo</option>
+      <option value="solar">Solar</option> 
+      <option value="wind">Wind</option>
+    </select>
+    <label for="aux_power_unit">Units of auxilary power:</label>
+    <input type="text" name="aux_power_unit" value ="{{ buggy['aux_power_unit']}}"/>
+    <br>
+    <label for="hamster_booster">Number of hamster boosters:</label>
+    <input type="text" name="hamster_booster" value ="{{ buggy['hamster_booster']}}"/>
+    <br>
+    <h2>Tyres</h2>
+    <label for="tyre"> Type of tyres:</label>
+    <select name ="tyre">
+      <option selected value="knobbly">Knobbly</option>
+      <option value="slick">Slick</option>
+      <option value="steelband">Steelband</option>
+      <option value="reactive">Reactive</option>
+      <option value="maglev">Maglev</option>
+    </select>
+    <label for="qty_tyres">Number of tyres:</label>
+    <input type="text" name="qty_tyres" value ="{{ buggy['qty_tyres']}}"/>
+    <br>
+    <h2>Offense and Defense</h2>
+    <label for="armour"> Armour:</label>
+    <select name ="armour">
+      <option selected value="none">None</option>
+      <option value="wood">Wood</option>
+      <option value="aluminium">Aluminium</option>
+      <option value="thinsteel">Thinsteel</option>
+      <option value="thicksteel">Thicksteel</option>
+      <option value="titanium">Titanium</option>
+    </select>
+    <br>
+    <label for="attack"> Attack:</label>
+    <select name ="attack">
+      <option selected value="none">None</option>
+      <option value="spike">Spike</option>
+      <option value="flame">Flame</option>
+      <option value="charge">Charge</option>
+      <option value="biohazard">Biohazard</option>
+    </select>
+    <label for="qty_attacks">Number of attacks:</label>
+    <input type="text" name="qty_attacks" value ="{{ buggy['qty_attacks']}}"/>
+    <br>
+    <label for="fireproof">Fireproof?:</label>
+    <input type="checkbox" name="fireproof" value = 1 />
+    <label for="insulated">Insulated?:</label>
+    <input type="checkbox" name="insulated" value = 1 />
+    <label for="antibiotic">Antibiotic?: </label>
+    <input type="checkbox" name="antibiotic" value = 1 />
+    <label for="banging">Banging sound system?:</label>
+    <input type="checkbox" name="banging" value = 1 />
+    <br>
+    <h2>Algorithm</h2>
+    <label for="algo"> Race computer algorithm :</label>
+    <select name ="algo">
+      <option value="defensive">Defensive</option>
+      <option selected value="steady">Steady</option>
+      <option value="offensive">Offensive</option>
+      <option value="titfortat">Tit for tat</option>
+      <option value="random">Random</option>
+      <option value="buggy">Buggy</option>
+    </select>    
+
     <input type="submit" class="button">
+
+    
   </form>
 
   <p>
