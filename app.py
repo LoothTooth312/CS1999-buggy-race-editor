@@ -28,15 +28,21 @@ def create_buggy():
     elif request.method == 'POST':
         msg=""
         qty_wheels = request.form['qty_wheels']
+        if not qty_wheels.isdigit():
+            msg = f"The input for Number of wheels must be a number"
+            return render_template("buggy-form.html", msg = msg)
+        flag_color = request.form['flag_color']
         try:
             with sql.connect(DATABASE_FILE) as con:
                 cur = con.cursor()
                 cur.execute(
-                    "UPDATE buggies set qty_wheels=? WHERE id=?",
-                    (qty_wheels, DEFAULT_BUGGY_ID)
+                    "UPDATE buggies set qty_wheels=?, flag_color=? WHERE id=?",
+                    (qty_wheels, flag_color, DEFAULT_BUGGY_ID),
                 )
                 con.commit()
-                msg = "Record successfully saved"
+                #msg = "Record successfully saved"
+                msg = f"qty_wheels={qty_wheels}" ,f"flag_color={flag_color}"
+
         except:
             con.rollback()
             msg = "error in update operation"
