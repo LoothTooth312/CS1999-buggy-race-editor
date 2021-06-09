@@ -60,7 +60,11 @@ def costcalc(ppower,punit,apower,aunit,hamster,tyre,tyreunit,armour,attack,attac
         apcost = 20
 
     hamstercost = int(hamster) * 5
-    apcost = apcost * int(aunit) 
+    try:
+        apcost = apcost * int(aunit) 
+    except:
+         aunit = 0
+         apcost = 0
 
     powercost = apcost + ppcost + hamstercost
 
@@ -171,7 +175,7 @@ def create_buggy():
             msg = "The primary power must be greater than 1"
             return render_template("updated.html" , msg = msg)
         aux_power_type = request.form['aux_power_type']
-        aux_power_unit = request.form['aux_power_unit']
+        aux_power_units = request.form['aux_power_units']
         hamster_booster = request.form['hamster_booster']
         if not power_units.isdigit():
             msg = "The input for number of hamster boosters must be a number"
@@ -203,10 +207,11 @@ def create_buggy():
             banging = request.form['banging']
         except:
             banging = False
+            
         algo = request.form['algo']
         if algo == "buggy":
             vio = "RULE VIOLATION: the algorithm can not be buggy"
-        total_cost = costcalc(power_type,power_units,aux_power_type,aux_power_unit,hamster_booster,tyres,qty_tyres,armour,attack,qty_attacks,fireproof,insulated,antibiotic,banging)
+        total_cost = costcalc(power_type,power_units,aux_power_type,aux_power_units,hamster_booster,tyres,qty_tyres,armour,attack,qty_attacks,fireproof,insulated,antibiotic,banging)
         try:
             with sql.connect(DATABASE_FILE) as con:
                 cur = con.cursor()
@@ -215,8 +220,8 @@ def create_buggy():
                     (qty_wheels, flag_color, flag_color_secondary, flag_pattern, DEFAULT_BUGGY_ID),
                 )
                 cur.execute(
-                    "UPDATE buggies set power_type=?, power_units=?, aux_power_type=?, aux_power_unit=?, hamster_booster=? WHERE id=?",
-                    (power_type,power_units,aux_power_type,aux_power_unit,hamster_booster, DEFAULT_BUGGY_ID )
+                    "UPDATE buggies set power_type=?, power_units=?, aux_power_type=?, aux_power_units=?, hamster_booster=? WHERE id=?",
+                    (power_type, power_units, aux_power_type, aux_power_units, hamster_booster, DEFAULT_BUGGY_ID )
                 )
                 cur.execute(
                     "UPDATE buggies set tyres=?, qty_tyres=? WHERE id=?",

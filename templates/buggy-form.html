@@ -32,23 +32,23 @@
     <h2>Power</h2>
     <label for="power_type">Primary power type:</label>
     <select name ="power_type">
-      <option selected value="petrol">Petrol</option>
+      <option value="petrol">Petrol</option>
       <option value="fusion">Fusion</option>
       <option value="steam">Steam</option>
       <option value="bio">Bio</option>
-      <option value="electric">Electric</option>
+      <option selected value="electric">Electric</option>
       <option value="rocket">Rocket</option>
       <option value="hamster">Hamster</option>
       <option value="thermo">Thermo</option>
       <option value="solar">Solar</option> 
       <option value="wind">Wind</option>
     </select>
-    <label for="power_unit">Units of power:</label>
-    <input type="text" name="power_unit" value ="{{buggy['power_unit']}}"/>
+    <label for="power_units">Units of power:</label>
+    <input type="text" name="power_units" value ="{{buggy['power_units']}}"/>
     <br>
     <label for="aux_power_type"> Auxilary power type:</label>
     <select name ="aux_power_type">
-      <option selected value="petrol">Petrol</option>
+      <option value="petrol">Petrol</option>
       <option value="fusion">Fusion</option>
       <option value="steam">Steam</option>
       <option value="bio">Bio</option>
@@ -56,18 +56,18 @@
       <option value="rocket">Rocket</option>
       <option value="hamster">Hamster</option>
       <option value="thermo">Thermo</option>
-      <option value="solar">Solar</option> 
+      <option selected value="solar">Solar</option> 
       <option value="wind">Wind</option>
     </select>
-    <label for="aux_power_unit">Units of auxilary power:</label>
-    <input type="text" name="aux_power_unit" value ="{{ buggy['aux_power_unit']}}"/>
+    <label for="aux_power_units">Units of auxilary power:</label>
+    <input type="text" name="aux_power_units" value ="{{ buggy['aux_power_units']}}"/>
     <br>
     <label for="hamster_booster">Number of hamster boosters:</label>
     <input type="text" name="hamster_booster" value ="{{ buggy['hamster_booster']}}"/>
     <br>
     <h2>Tyres</h2>
-    <label for="tyre"> Type of tyres:</label>
-    <select name ="tyre">
+    <label for="tyres"> Type of tyres:</label>
+    <select name ="tyres">
       <option selected value="knobbly">Knobbly</option>
       <option value="slick">Slick</option>
       <option value="steelband">Steelband</option>
